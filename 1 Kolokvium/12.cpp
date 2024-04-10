@@ -149,28 +149,33 @@ public:
     }
     void dodadi(const OperativenSistem &nov)
     {
+        bool najden=false;
         for(int i=0; i<n; i++)
         {
             if(os[i].istaFamilija(nov))
             {
                 if(os[i].sporediVerzija(nov)==-1)
                 {
+                    najden=true;
                     os[i]=nov;
                     break;
                 }
             }
         }
-        OperativenSistem *temp = new OperativenSistem[n + 1];
-        for (int i = 0; i < n; i++)
+        if(!najden) 
         {
-            temp[i] = os[i];
-        }
-        temp[n++] = nov;
-        delete[] os;
-        os = new OperativenSistem[n];
-        for (int i = 0; i < n; i++)
-        {
-            os[i] = temp[i];
+            OperativenSistem *temp = new OperativenSistem[n + 1];
+            for (int i = 0; i < n; i++) 
+            {
+                temp[i] = os[i];
+            }
+            temp[n++] = nov;
+            delete[] os;
+            os = new OperativenSistem[n];
+            for (int i = 0; i < n; i++) 
+            {
+                os[i] = temp[i];
+            }
         }
     }
 
