@@ -5,7 +5,7 @@ using namespace std;
 enum Extension{
     pdf, txt, exe
 };
-ostream &operator<<(std::ostream& os, Extension ext) {
+ostream &operator<<(ostream &os, Extension ext) {
     switch (ext) {
         case txt:
             os << "txt";
